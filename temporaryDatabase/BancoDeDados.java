@@ -368,8 +368,10 @@ public static String formatarDataHoraPadrao(String tipoFormatacao, long dataHora
              DateFormat formaPadraoDEFAULT = DateFormat.getDateInstance(DateFormat.DEFAULT);
             return formaPadraoDEFAULT.format(dataHora);
           
+            default:
+               return "Não identificado!!!";
  }
-    return "Não identificado!!!";
+    
 }
 
 
@@ -377,6 +379,28 @@ public static String formatarDataHora(String formatacao, long dataHora){
     
     DateFormat formatarDataHora = new SimpleDateFormat(formatacao);
    return formatarDataHora.format(dataHora); 
+   
+}
+
+
+public static int Calendario(String diaMesAno){
+    
+    switch(diaMesAno){
+        case "Dia" : 
+            Calendar calendarioDia = Calendar.getInstance();
+            return calendarioDia.get(Calendar.DATE);
+            
+        case "Mes":
+            Calendar calendarioMes = Calendar.getInstance();
+            return calendarioMes.get(Calendar.MARCH) + 1;
+            
+        case "Ano": 
+            Calendar calendarioAno = Calendar.getInstance();
+            return calendarioAno.get(Calendar.YEAR);
+           
+        default:
+               return 0;
+    }
    
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
