@@ -5,7 +5,7 @@
  // true = memoria nova
 package temporaryDatabase;
 
-import java.text.DateFormat;
+import java.text.*;
 import java.util.*;
 
 /*
@@ -314,7 +314,6 @@ public static String comandoUPDATE( String comando_up, String dado ,String comma
 }
 
 
-
 public static String comandoDELETE(String comando, int position){
    if(comando == "DELETE")
     {
@@ -331,6 +330,57 @@ public static String comandoDELETE(String comando, int position){
     } 
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////// DATA E HORA /////////////////////////////////////////////////////////
+
+public static long DataHoraAgora(){
+    Date dataHora = new Date();
+    return dataHora.getTime();
+}
+
+
+public static String formatarDataHoraPadrao(String tipoFormatacao, long dataHora){
+    switch(tipoFormatacao){
+        case "LONG":
+            DateFormat formaPadraoLONG = DateFormat.getDateInstance(DateFormat.LONG);
+            return formaPadraoLONG.format(dataHora);
+           
+        
+        case "FULL":
+             DateFormat formaPadraoFULL = DateFormat.getDateInstance(DateFormat.FULL);
+            return formaPadraoFULL.format(dataHora);
+            
+            
+             case "MEDIUM":
+             DateFormat formaPadraoMEDIUM = DateFormat.getDateInstance(DateFormat.MEDIUM);
+            return formaPadraoMEDIUM.format(dataHora);
+         
+            
+            
+             case "SHORT":
+             DateFormat formaPadraoSHORT = DateFormat.getDateInstance(DateFormat.SHORT);
+            return formaPadraoSHORT.format(dataHora);
+           
+            
+            
+             case "DEFAULT":
+             DateFormat formaPadraoDEFAULT = DateFormat.getDateInstance(DateFormat.DEFAULT);
+            return formaPadraoDEFAULT.format(dataHora);
+          
+ }
+    return "Não identificado!!!";
+}
+
+
+public static String formatarDataHora(String formatacao, long dataHora){
+    
+    DateFormat formatarDataHora = new SimpleDateFormat(formatacao);
+   return formatarDataHora.format(dataHora); 
+   
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 ///////////////                     HELP            ///////////////////////////////////////////////////////////
 
